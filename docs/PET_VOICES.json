@@ -1,0 +1,296 @@
+[
+  {
+    "file": "cat-happy-0.wav",
+    "species": "cat",
+    "mood": "happy",
+    "take": 0,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "cat-happy-1.wav",
+    "species": "cat",
+    "mood": "happy",
+    "take": 1,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "cat-excited-0.wav",
+    "species": "cat",
+    "mood": "excited",
+    "take": 0,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "cat-excited-1.wav",
+    "species": "cat",
+    "mood": "excited",
+    "take": 1,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "cat-sleepy-0.wav",
+    "species": "cat",
+    "mood": "sleepy",
+    "take": 0,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "cat-sleepy-1.wav",
+    "species": "cat",
+    "mood": "sleepy",
+    "take": 1,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "rabbit-happy-0.wav",
+    "species": "rabbit",
+    "mood": "happy",
+    "take": 0,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "rabbit-happy-1.wav",
+    "species": "rabbit",
+    "mood": "happy",
+    "take": 1,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "rabbit-excited-0.wav",
+    "species": "rabbit",
+    "mood": "excited",
+    "take": 0,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "rabbit-excited-1.wav",
+    "species": "rabbit",
+    "mood": "excited",
+    "take": 1,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "rabbit-sleepy-0.wav",
+    "species": "rabbit",
+    "mood": "sleepy",
+    "take": 0,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "rabbit-sleepy-1.wav",
+    "species": "rabbit",
+    "mood": "sleepy",
+    "take": 1,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "dog-happy-0.wav",
+    "species": "dog",
+    "mood": "happy",
+    "take": 0,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "dog-happy-1.wav",
+    "species": "dog",
+    "mood": "happy",
+    "take": 1,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "dog-excited-0.wav",
+    "species": "dog",
+    "mood": "excited",
+    "take": 0,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "dog-excited-1.wav",
+    "species": "dog",
+    "mood": "excited",
+    "take": 1,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "dog-sleepy-0.wav",
+    "species": "dog",
+    "mood": "sleepy",
+    "take": 0,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "dog-sleepy-1.wav",
+    "species": "dog",
+    "mood": "sleepy",
+    "take": 1,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "hamster-happy-0.wav",
+    "species": "hamster",
+    "mood": "happy",
+    "take": 0,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "hamster-happy-1.wav",
+    "species": "hamster",
+    "mood": "happy",
+    "take": 1,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "hamster-excited-0.wav",
+    "species": "hamster",
+    "mood": "excited",
+    "take": 0,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "hamster-excited-1.wav",
+    "species": "hamster",
+    "mood": "excited",
+    "take": 1,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "hamster-sleepy-0.wav",
+    "species": "hamster",
+    "mood": "sleepy",
+    "take": 0,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "hamster-sleepy-1.wav",
+    "species": "hamster",
+    "mood": "sleepy",
+    "take": 1,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "pusheen-happy-0.wav",
+    "species": "pusheen",
+    "mood": "happy",
+    "take": 0,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "pusheen-happy-1.wav",
+    "species": "pusheen",
+    "mood": "happy",
+    "take": 1,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "pusheen-excited-0.wav",
+    "species": "pusheen",
+    "mood": "excited",
+    "take": 0,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "pusheen-excited-1.wav",
+    "species": "pusheen",
+    "mood": "excited",
+    "take": 1,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "pusheen-sleepy-0.wav",
+    "species": "pusheen",
+    "mood": "sleepy",
+    "take": 0,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "pusheen-sleepy-1.wav",
+    "species": "pusheen",
+    "mood": "sleepy",
+    "take": 1,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "capybara-happy-0.wav",
+    "species": "capybara",
+    "mood": "happy",
+    "take": 0,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "capybara-happy-1.wav",
+    "species": "capybara",
+    "mood": "happy",
+    "take": 1,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "capybara-excited-0.wav",
+    "species": "capybara",
+    "mood": "excited",
+    "take": 0,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "capybara-excited-1.wav",
+    "species": "capybara",
+    "mood": "excited",
+    "take": 1,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "capybara-sleepy-0.wav",
+    "species": "capybara",
+    "mood": "sleepy",
+    "take": 0,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "capybara-sleepy-1.wav",
+    "species": "capybara",
+    "mood": "sleepy",
+    "take": 1,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "cheems-happy-0.wav",
+    "species": "cheems",
+    "mood": "happy",
+    "take": 0,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "cheems-happy-1.wav",
+    "species": "cheems",
+    "mood": "happy",
+    "take": 1,
+    "duration": 1.1499773242630384
+  },
+  {
+    "file": "cheems-excited-0.wav",
+    "species": "cheems",
+    "mood": "excited",
+    "take": 0,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "cheems-excited-1.wav",
+    "species": "cheems",
+    "mood": "excited",
+    "take": 1,
+    "duration": 1.0499773242630386
+  },
+  {
+    "file": "cheems-sleepy-0.wav",
+    "species": "cheems",
+    "mood": "sleepy",
+    "take": 0,
+    "duration": 1.3499773242630386
+  },
+  {
+    "file": "cheems-sleepy-1.wav",
+    "species": "cheems",
+    "mood": "sleepy",
+    "take": 1,
+    "duration": 1.3499773242630386
+  }
+]

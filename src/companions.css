@@ -1,0 +1,136 @@
+/* Extra transparent headroom keeps full-size hats above the original body frame. */
+.pet-actor > img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 125%;
+  max-height: none;
+  overflow: visible;
+  transform-origin: 50% 97%;
+}
+.pet-dialogue {
+  bottom: calc(var(--care-bottom) + var(--care-height) + var(--pet-gap) + var(--room-unit) * var(--pet-width, 40) * (1 + var(--headwear-rise, 0)) + 13px);
+}
+.pet-actor[data-motion="rest"] > img {
+  animation: companion-breathe var(--pet-breath, 5s) ease-in-out infinite;
+}
+.pet-actor[data-motion="sleep"] > img {
+  animation: companion-sleep calc(var(--pet-breath, 5s) + 1s) ease-in-out infinite;
+}
+.pet-actor[data-motion="sway"] > img {
+  animation: companion-sway 2.1s ease-in-out both, companion-breathe var(--pet-breath, 5s) 2.1s infinite;
+}
+.pet-actor[data-motion="curious"] > img {
+  animation: companion-curious 2.2s ease-in-out both, companion-breathe var(--pet-breath, 5s) 2.2s infinite;
+}
+.pet-actor[data-motion="stretch"] > img {
+  animation: companion-stretch 2.3s ease-in-out both, companion-breathe var(--pet-breath, 5s) 2.3s infinite;
+}
+.pet-actor[data-motion="wiggle"] > img {
+  animation: companion-wiggle 1.8s ease-in-out both, companion-breathe var(--pet-breath, 5s) 1.8s infinite;
+}
+.pet-actor[data-motion="hop"] > img {
+  animation: companion-hop 1.3s ease-in-out both, companion-breathe var(--pet-breath, 5s) 1.3s infinite;
+}
+.pet-actor[data-motion="double-hop"] > img {
+  animation: companion-double-hop 1.7s ease-in-out both, companion-breathe var(--pet-breath, 5s) 1.7s infinite;
+}
+.pet-actor[data-motion="cuddle"] > img {
+  animation: companion-cuddle 2.2s ease-in-out both, companion-breathe var(--pet-breath, 5s) 2.2s infinite;
+}
+.pet-actor[data-motion="nibble"] > img {
+  animation: companion-nibble .28s ease-in-out 7, companion-breathe var(--pet-breath, 5s) 1.96s infinite;
+}
+.pet-actor[data-motion="shake"] > img {
+  animation: companion-shake 1.4s ease-in-out both, companion-breathe var(--pet-breath, 5s) 1.4s infinite;
+}
+.pet-actor[data-motion="loaf"] > img {
+  animation: companion-loaf 2.3s ease-in-out both, companion-breathe var(--pet-breath, 5s) 2.3s infinite;
+}
+.pet-actor[data-motion="sniff"] > img {
+  animation: companion-sniff 1.7s ease-in-out both, companion-breathe var(--pet-breath, 5s) 1.7s infinite;
+}
+.pet-actor:is([data-motion="hop"], [data-motion="double-hop"]) .pet-floor-shadow {
+  animation: companion-shadow .8s ease-in-out 2;
+}
+@keyframes companion-breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.007, 1.013); }
+}
+@keyframes companion-sleep {
+  0%,100% { transform: scale(1.01, .96); }
+  50% { transform: scale(1.024, .982); }
+}
+@keyframes companion-sway {
+  0%,100% { transform: rotate(0); }
+  25% { transform: rotate(calc(-1 * var(--pet-lean, 2deg))); }
+  65% { transform: rotate(var(--pet-lean, 2deg)); }
+}
+@keyframes companion-curious {
+  0%,100% { transform: rotate(0); }
+  20%,45% { transform: translateX(-2px) rotate(calc(-1.7 * var(--pet-lean, 2deg))); }
+  70%,85% { transform: translateX(2px) rotate(var(--pet-lean, 2deg)); }
+}
+@keyframes companion-stretch {
+  0%,100% { transform: scale(1); }
+  25% { transform: scale(1.045, .955); }
+  55% { transform: scale(.965, 1.055); }
+  80% { transform: scale(1.02, .99); }
+}
+@keyframes companion-wiggle {
+  0%,100% { transform: rotate(0); }
+  15%,45%,75% { transform: translateX(-2px) rotate(calc(-1 * var(--pet-lean, 2deg))); }
+  30%,60%,90% { transform: translateX(2px) rotate(var(--pet-lean, 2deg)); }
+}
+@keyframes companion-hop {
+  0%,100% { transform: translateY(0) scale(1); }
+  20% { transform: scale(1.045, .94); }
+  44% { transform: translateY(calc(-1 * var(--pet-hop, 7px))) scale(.98, 1.03); }
+  68% { transform: scale(1.04, .96); }
+  85% { transform: scale(.995, 1.01); }
+}
+@keyframes companion-double-hop {
+  0%,100% { transform: translateY(0) scale(1); }
+  12%,54% { transform: scale(1.04, .95); }
+  28%,70% { transform: translateY(calc(-1 * var(--pet-hop, 7px))) scale(.98, 1.025); }
+  43%,85% { transform: scale(1.035, .97); }
+}
+@keyframes companion-cuddle {
+  0%,100% { transform: rotate(0) scale(1); }
+  25% { transform: rotate(calc(-1 * var(--pet-lean, 2deg))) scale(1.035, 1.015); }
+  60% { transform: rotate(var(--pet-lean, 2deg)) scale(1.04, 1.02); }
+  85% { transform: rotate(-.5deg) scale(1.015); }
+}
+@keyframes companion-nibble {
+  0%,100% { transform: scale(1); }
+  50% { transform: translateY(1px) scale(1.018, .988); }
+}
+@keyframes companion-shake {
+  0%,100% { transform: rotate(0); }
+  15%,35%,55% { transform: rotate(calc(-1.35 * var(--pet-lean, 2deg))); }
+  25%,45%,65% { transform: rotate(calc(1.35 * var(--pet-lean, 2deg))); }
+  80% { transform: rotate(-.5deg); }
+}
+@keyframes companion-loaf {
+  0%,100% { transform: scale(1); }
+  35%,65% { transform: scale(1.045, .93); }
+}
+@keyframes companion-sniff {
+  0%,100% { transform: scale(1); }
+  20%,50% { transform: translateY(1px) scale(1.015, .99); }
+  35%,65% { transform: translateY(-1px) scale(.995, 1.01); }
+  80% { transform: rotate(calc(-.5 * var(--pet-lean, 2deg))); }
+}
+@keyframes companion-shadow {
+  0%,100% { transform: scale(1); opacity: .75; }
+  50% { transform: scale(.85); opacity: .42; }
+}
+.room-still .pet-actor > img, .no-motion .pet-actor > img,
+.room-still .pet-floor-shadow, .no-motion .pet-floor-shadow { animation: none !important; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .pet-actor > img, .pet-floor-shadow { animation: none !important; transform: none; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .pet-dialogue { bottom: calc(38cqh + 23px + 38cqh * var(--headwear-rise, 0)); }
+}

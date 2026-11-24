@@ -1,0 +1,153 @@
+/* Smooth Cyrillic typography; the pixel art and tactile retro chrome stay crisp. */
+.phone-widget-setup .sound-test { margin: 12px 0; width: 100%; justify-content: center; }
+.widget-download { text-decoration: none; }
+.app-shell {
+  font-family: Mochi, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.app-shell :is(button, input, textarea, select, h1, h2, h3) {
+  font-family: inherit;
+}
+.app-shell .sheet-header h2 {
+  font-family: inherit;
+  font-size: 25px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.app-shell :is(.primary, .intro-primary, .quick-play, .shop-buy, .save-name) {
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.app-shell :is(.category-tabs button, .period-grid button, .weather-options button) {
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.app-shell .room-switch button {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.wallet .coin-amount { font-size: 17px; font-weight: 700; }
+.needs { gap: 8px; }
+.need {
+  background: #fff8e9f7;
+  border-color: #e4d3a9;
+  padding: 9px 8px 8px;
+}
+.need-label, .need-label strong {
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+.need-label { gap: 4px; font-weight: 500; }
+.need-label strong { font-weight: 700; }
+.need-label small { font-size: 12px; margin-left: 0; opacity: 1; }
+.need-label svg { width: 12px; height: 12px; }
+.need-food { color: #ad452c; background: #fff4e6f7; border-color: #e3b890; }
+.need-energy { color: #365b96; background: #f0f4fff7; border-color: #b8c9e5; }
+.need-joy { color: #356833; background: #f0f7e6f7; border-color: #b6cd9b; }
+.need-track { height: 5px; background: #b8a98b33; margin-top: 6px; }
+.need-food .need-track span { background: #df7b50; }
+.need-energy .need-track span { background: #7d9cdb; }
+.need-joy .need-track span { background: #83ac55; }
+.pet-dialogue .pet-name { font-size: 14px; font-weight: 700; line-height: 1.4; }
+.pet-dialogue p { font-size: 15px; line-height: 1.5; }
+.care-controls > button {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+.care-controls > button:first-child { color: #a75934; }
+.care-icon > svg { width: 28px; height: 28px; }
+.bottom-nav button { font-size: 14px; line-height: 1.25; font-weight: 500; }
+.home-caption { font-size: 10px; letter-spacing: 0; }
+.app-shell :is(.shop-item h3, .game-card h3, .settings-group h3) {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.app-shell :is(.shop-item p, .game-card p, .settings-hint, .toggle-row small, .menu-list small) {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #68705b;
+}
+.app-shell :is(.product-quality, .catalog-count, .product-owned, .catalog-controls select) {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.app-shell :is(.input-label, .name-input, .setting-tile, .menu-list strong, .toggle-row strong) {
+  font-size: 16px;
+}
+.app-shell :is(.pantry-item > span:not(.item-quantity):not(.selected-check), .inventory-item > span) {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.app-shell :is(.pantry-item small, .sound-settings > label, .weather-badge) { font-size: 13px; }
+.app-shell .companion-picker, .app-shell .adoption-pets {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.app-shell :is(.companion-picker > button, .adoption-pets > button) {
+  padding: 10px 3px 12px;
+  border-radius: 5px;
+}
+.app-shell :is(.companion-picker img, .adoption-pets img) {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+}
+.app-shell :is(.companion-picker span, .adoption-pets > button > span) {
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #4b603f;
+}
+.app-shell :is(.prologue-copy h1, .adoption-heading h1, .delivery-note) { font-family: inherit; }
+.app-shell :is(.prologue-copy > p, .delivery-note > span, .prologue-copy .soft-copy) {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.app-shell :is(.intro-kicker, .adoption-heading .intro-kicker, .adoption-gift) { font-size: 13px; }
+@media (max-width: 399px) {
+  .need-label > svg { display: none; }
+}
+@media (max-width: 359px) {
+  .needs { gap: 5px; }
+  .need { padding: 8px 5px 7px; }
+  .care-controls > button { font-size: 14px; }
+  .bottom-nav button { font-size: 13px; }
+  .pet-dialogue p { font-size: 14px; }
+  .app-shell :is(.companion-picker, .adoption-pets) { gap: 6px; }
+  .app-shell :is(.companion-picker span, .adoption-pets > button > span) { font-size: 12px; }
+}
+@media (max-width: 319px) {
+  .need-label, .need-label strong { font-size: 14px; }
+  .need-label small { font-size: 12px; }
+  .need-label { flex-wrap: wrap; gap: 0; }
+  .need-label > span { width: 100%; }
+  .need-label strong { margin-left: 0; }
+  .weather-badge, .decorate-button, .room-sound-button { top: calc(196px + var(--tg-safe-top)); }
+  .app-shell :is(.companion-picker, .adoption-pets) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 319px) and (max-height: 680px) {
+  .weather-badge, .decorate-button, .room-sound-button { top: calc(167px + var(--tg-safe-top)); }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .bottom-nav button { font-size: 12px; }
+  .care-controls { width: 176px; }
+  .care-controls > button { font-size: 14px; }
+  .pet-dialogue p { font-size: 13px; }
+  .need-label > svg { display: none; }
+}
+@media (orientation: landscape) and (max-height: 560px) and (max-width: 600px) {
+  .care-controls { width: auto; }
+}

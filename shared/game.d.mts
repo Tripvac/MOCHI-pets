@@ -1,0 +1,11 @@
+import type { State, Action, Achievement } from "../src/model";
+export function fresh(now?: number): State;
+export function normalize(s: unknown, now?: number): State;
+export function progress(s: State, now?: number): State;
+export function act(s: State, a: Action, now?: number): State;
+export function clamp(v: number): number;
+export const thresholds: number[];
+export const stageNames: string[];
+export const achievements: Achievement[];
+export const pets: Record<string, { name: string; default: string }>;
+export function achievementValue(s: State, a: Achievement): number;

@@ -1,0 +1,533 @@
+/* The painted room and every furnishing are native image layers. A GPU failure
+   can no longer remove the room while leaving the pet on a blank background. */
+.room-scene {
+  background: #314a65;
+  isolation: isolate;
+  contain: layout paint;
+}
+.room-architecture,
+.room-background,
+.room-furniture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.room-background {
+  object-fit: fill;
+  display: block;
+  filter: saturate(1.07);
+  transition: filter 1.2s;
+  user-select: none;
+}
+.room-background[hidden] {
+  display: none;
+}
+.room-night .room-background {
+  filter: brightness(0.58) saturate(0.72) hue-rotate(8deg);
+}
+.room-sunset .room-background {
+  filter: brightness(0.88) saturate(1.05) sepia(0.12);
+}
+.weather-rain .room-background,
+.weather-cloud .room-background {
+  filter: brightness(0.91) saturate(0.96);
+}
+.room-night.weather-rain .room-background,
+.room-night.weather-cloud .room-background {
+  filter: brightness(0.53) saturate(0.7);
+}
+.room-furniture {
+  z-index: 3;
+  transition: filter 1.2s;
+}
+.room-night .room-furniture {
+  filter: brightness(0.79) saturate(0.87);
+}
+.placed-object {
+  position: absolute;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  transform: translate(-50%, -100%);
+  filter: drop-shadow(0 4px 2px #29211822);
+  image-rendering: auto;
+  pointer-events: none;
+  user-select: none;
+  animation: furnishing-in 0.36s ease-out both;
+}
+.placed-rug {
+  transform: translate(-50%, -50%) scaleY(0.53);
+  filter: drop-shadow(0 4px 1px #33251a15);
+}
+.placed-poster,
+.placed-ceiling {
+  filter: drop-shadow(1px 3px 1px #1a25302b);
+}
+.pet-actor {
+  position: absolute;
+  z-index: 6;
+  left: 52%;
+  top: 81%;
+  width: var(--pet-size);
+  transform: translate(-50%, -100%);
+  padding: 0;
+  border: 0;
+  background: none;
+  aspect-ratio: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.pet-actor:active:not(:disabled) {
+  transform: translate(-50%, -100%) scale(0.98);
+}
+.pet-actor > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 3px 1px #3c2a2920);
+  transform-origin: 50% 93%;
+  animation: pet-breathe 4s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
+.room-night .pet-actor > img {
+  filter: brightness(0.88) drop-shadow(0 4px 2px #151e2b35);
+}
+.pet-floor-shadow {
+  position: absolute;
+  bottom: -1%;
+  left: 19%;
+  width: 62%;
+  height: 7%;
+  background: #5d463b38;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+.emotion-love > img {
+  animation:
+    pet-delighted 0.7s ease-in-out 3,
+    pet-breathe 4s 2.1s infinite;
+}
+.emotion-eat > img {
+  animation: pet-nibble 0.28s ease-in-out 6;
+}
+.pet-hearts {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  font-size: 22px;
+  color: #d97589;
+  display: flex;
+  justify-content: space-between;
+  animation: pet-heart-rise 2.5s both;
+  pointer-events: none;
+}
+.pet-hearts > i {
+  font-style: normal;
+  transform: translateY(-13px);
+  font-size: 16px;
+}
+.pet-sleeping {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font: 600 20px Georgia;
+  color: #f7f1ce;
+  text-shadow: 0 1px 5px #304253;
+  animation: sleep-float 3s infinite;
+  pointer-events: none;
+}
+.pet-sleeping span {
+  font-size: 15px;
+  position: relative;
+  top: -16px;
+  left: 2px;
+}
+.pet-sleeping i {
+  font-style: normal;
+  font-size: 11px;
+  position: relative;
+  top: -30px;
+  left: 1px;
+}
+.room-sunbeams {
+  position: absolute;
+  inset: 30% 0 3%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    117deg,
+    transparent 32%,
+    #ffe4a527 34%,
+    #fff3c52b 39%,
+    transparent 42%,
+    transparent 52%,
+    #fff2bc20 55%,
+    transparent 61%
+  );
+  mix-blend-mode: screen;
+  animation: sunlight-drift 28s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+.room-night .room-sunbeams,
+.weather-rain .room-sunbeams,
+.weather-cloud .room-sunbeams,
+.weather-snow .room-sunbeams {
+  opacity: 0;
+}
+.room-lamplight {
+  position: absolute;
+  z-index: 4;
+  inset: 40% 0 7%;
+  background:
+    radial-gradient(ellipse at 13% 54%, #ffc37444, transparent 42%),
+    radial-gradient(ellipse at 59% 34%, #ffe4a41a, transparent 42%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.window-weather {
+  position: absolute;
+  z-index: 2;
+  left: 28%;
+  top: 23%;
+  width: 55%;
+  height: 29%;
+  overflow: hidden;
+  pointer-events: none;
+  clip-path: polygon(4% 2%, 96% 2%, 96% 98%, 4% 98%);
+  border-radius: 3px;
+}
+.room-bedroom .window-weather {
+  left: 32%;
+  width: 50%;
+}
+.rain-lines,
+.rain-beads,
+.snow-flakes,
+.weather-clouds,
+.moonlight {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.weather-rain .rain-lines {
+  opacity: 0.9;
+  background: repeating-linear-gradient(
+    103deg,
+    transparent 0px,
+    transparent 12px,
+    #e4f3ffb0 13px,
+    #f6fbffdb 14px,
+    transparent 15px,
+    transparent 27px
+  );
+  background-size: 49px 90px;
+  animation: window-rain 0.58s linear infinite;
+}
+.weather-rain .rain-beads {
+  opacity: 0.9;
+  background-image:
+    radial-gradient(ellipse at 22% 24%, #fff7 0 1px, transparent 2px),
+    radial-gradient(ellipse at 70% 70%, #e3eeffb0 0 1px, transparent 2px);
+  background-size:
+    27px 43px,
+    51px 57px;
+  animation: window-droplets 7s linear infinite;
+}
+.weather-rain .weather-clouds,
+.weather-cloud .weather-clouds,
+.weather-snow .weather-clouds {
+  opacity: 0.42;
+  background: #526b89;
+  mix-blend-mode: multiply;
+}
+.weather-snow .snow-flakes {
+  opacity: 0.95;
+  background-image:
+    radial-gradient(circle, #fff 0 1.7px, transparent 2.5px),
+    radial-gradient(circle, #e8f0ff 0 1px, transparent 2px);
+  background-size:
+    29px 47px,
+    53px 37px;
+  animation: window-snow 6s linear infinite;
+}
+.room-night .moonlight {
+  opacity: 0.65;
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      #fff0c6 0 7px,
+      #fff8da22 8px,
+      transparent 26px
+    ),
+    linear-gradient(#18365e8c, #23355266);
+}
+.room-dust {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  overflow: hidden;
+}
+.room-dust i {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff4c4a8;
+  animation: dust-drift 17s linear infinite;
+  opacity: 0.55;
+}
+.architecture-fallback {
+  background:
+    linear-gradient(
+      0deg,
+      transparent 0 41%,
+      #69829b 41% 42%,
+      #354e6b 42% 59%,
+      #c4ccd0 59% 60%,
+      #2f4661 60% 98%,
+      #d5d7d1 98%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      #b88a56 0px,
+      #cda16c 26px,
+      #876442 27px,
+      #cda16c 28px
+    );
+}
+.painted-window {
+  position: absolute;
+  left: 28%;
+  top: 23%;
+  width: 55%;
+  height: 29%;
+  border: 7px solid #e3e1d5;
+  box-shadow:
+    0 0 0 3px #b3b7b4,
+    4px 6px 10px #142b3f50;
+  background: linear-gradient(#86bdd8 0 48%, #add29b 49% 67%, #5c8a54 68%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.painted-window > div {
+  border-right: 4px solid #e3e1d5;
+}
+.painted-window > span {
+  position: absolute;
+  inset: 48% 0 auto;
+  height: 5px;
+  background: #e3e1d5;
+}
+.room-still *,
+.no-motion .room-scene * {
+  animation: none !important;
+  transition: none !important;
+}
+@keyframes furnishing-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pet-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.012, 1.018);
+  }
+}
+@keyframes pet-delighted {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1deg);
+  }
+}
+@keyframes pet-nibble {
+  50% {
+    transform: rotate(1deg) scaleY(0.992);
+  }
+}
+@keyframes pet-heart-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-35px);
+  }
+}
+@keyframes sleep-float {
+  50% {
+    transform: translate(4px, -8px);
+    opacity: 0.7;
+  }
+}
+@keyframes sunlight-drift {
+  to {
+    transform: translateX(8px);
+    opacity: 0.6;
+  }
+}
+@keyframes window-rain {
+  to {
+    background-position: -49px 90px;
+  }
+}
+@keyframes window-droplets {
+  to {
+    background-position:
+      0 43px,
+      0 57px;
+  }
+}
+@keyframes window-snow {
+  to {
+    background-position:
+      14px 94px,
+      -12px 74px;
+  }
+}
+@keyframes dust-drift {
+  0% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(17px, -65px);
+    opacity: 0;
+  }
+}
+/* Existing cream controls retain their palette; only the painted room is blue. */
+.room-sound-button {
+  position: absolute;
+  top: calc(202px + var(--tg-safe-top));
+  right: 67px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff8e9e8;
+  color: #607a55;
+  box-shadow: 0 1px 5px #75523b0a;
+}
+.room-sound-button[aria-pressed="false"] {
+  color: #8c8273;
+}
+.companion-picker {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  margin: 17px 0 12px;
+}
+.companion-picker > button {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 2px 10px;
+  border: 1px solid #e3e5d8;
+  background: #efefe4;
+  border-radius: 14px;
+}
+.companion-picker > button.selected {
+  border-color: #a0b58b;
+  background: #e6edd9;
+  box-shadow: inset 0 0 0 1px #c0ceaa;
+}
+.companion-picker img {
+  max-width: 100%;
+  height: auto;
+}
+.companion-picker span {
+  font-size: 11px;
+  margin-top: 3px;
+}
+.sound-settings {
+  padding: 10px 0 18px;
+}
+.sound-settings > label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #657358;
+}
+.sound-settings > label > strong {
+  font-size: 12px;
+}
+.sound-settings input {
+  width: 100%;
+  accent-color: #6f895c;
+  margin: 18px 0;
+  cursor: pointer;
+}
+.sound-test {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid #dce1d0;
+  border-radius: 12px;
+  padding: 11px 15px;
+  background: #f3f4e8;
+  color: #637952;
+  font-size: 13px;
+}
+.weather-options {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.weather-options button {
+  font-size: 12px;
+  padding-inline: 4px;
+}
+.scene-top-fade {
+  background: linear-gradient(#f7efdfb8, #f7efdf80 56%, transparent);
+  height: 225px;
+}
+.scene-bottom-fade {
+  height: 135px;
+  background: linear-gradient(transparent, #f4eee1b5 65%, #f4efe6e6);
+}
+@media (max-height: 740px) {
+  .room-sound-button {
+    top: calc(184px + var(--tg-safe-top));
+  }
+  .pet-actor {
+    top: 82%;
+  }
+  .room-dust {
+    opacity: 0.6;
+  }
+  .pet-dialogue {
+    top: 41%;
+    padding: 7px 13px 9px;
+  }
+  .companion-picker span {
+    font-size: 10px;
+  }
+}

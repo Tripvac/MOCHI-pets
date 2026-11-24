@@ -1,0 +1,27 @@
+{
+  "name": "mochi-world",
+  "version": "9.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "check": "tsc --noEmit",
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "standalone": "node scripts/build-standalone.mjs",
+    "widget": "node scripts/build-phone-widget.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "pixi.js": "^8.14.0",
+    "lucide-react": "^0.468.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^6.1.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0"
+  }
+}
