@@ -74,14 +74,14 @@ export function useGameStore() {
     try {
       const r = await fetch(path, {
         method: body ? "POST" : "GET",
-        headers: body ? { "Content-Type": "application/json" } : undefined,
+        headers: body ? { "Content-Type": "application/json", "X-Telegram-Init-Data": window.Telegram?.WebApp?.initData || "" } : undefined,
         body: body ? JSON.stringify(body) : undefined,
         signal: controller.signal,
       });
       const type = r.headers.get("content-type") || "";
       if (!type.includes("application/json"))
         throw Error(
-          "Общий дом доступен при запуске проекта через Node-сервер.",
+          "Общий дом пока недоступен. Проверь подключение.",
         );
       const data = await r.json();
       if (!r.ok) {
